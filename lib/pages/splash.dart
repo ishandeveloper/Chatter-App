@@ -16,7 +16,7 @@ class _ChatterHomeState extends State<ChatterHome> with SingleTickerProviderStat
     super.initState();
     controller=AnimationController(
       duration: Duration(seconds: 1),
-      vsync: 
+      vsync: this,
     );
   }
   @override
