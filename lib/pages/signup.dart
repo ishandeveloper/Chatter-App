@@ -8,7 +8,8 @@ class ChatterSignUp extends StatelessWidget {
     return Scaffold(
       body: SingleChildScrollView(
         child: Container(
-          margin: EdgeInsets.only(top:MediaQuery.of(context).size.height*0.2),
+          height: MediaQuery.of(context).size.height,
+          // margin: EdgeInsets.only(top:MediaQuery.of(context).size.height*0.2),
           child: Center(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
