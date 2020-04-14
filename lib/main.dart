@@ -1,3 +1,5 @@
+import 'package:chat_app/pages/login.dart';
+import 'package:chat_app/pages/signup.dart';
 import 'package:flutter/material.dart';
 
 import 'pages/splash.dart';
@@ -10,7 +12,14 @@ class ChatterApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Chatter',
-      home: ChatterHome(),
+      theme: ThemeData(textTheme: TextTheme(body1: TextStyle(fontFamily: 'Poppins'))),
+      // home: ChatterHome(),
+      initialRoute: '/',
+      routes: {
+        '/':(context)=>ChatterHome(),
+        '/login':(context)=>ChatterLogin(),
+        '/signup':(context)=>ChatterSignUp()
+      },
     );
   }
 }
