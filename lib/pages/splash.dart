@@ -1,22 +1,23 @@
 import 'package:chat_app/widgets/custombutton.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 
 class ChatterHome extends StatefulWidget {
   @override
   _ChatterHomeState createState() => _ChatterHomeState();
 }
 
-class _ChatterHomeState extends State<ChatterHome> {
+class _ChatterHomeState extends State<ChatterHome> with SingleTickerProviderStateMixin{
 
   AnimationController controller;
 
   @override
   void initState() {
     super.initState();
-    // controller=AnimationController(
-    //   duration: Duration(seconds: 1),
-    //   vsync: 
-    // );
+    controller=AnimationController(
+      duration: Duration(seconds: 1),
+      vsync: 
+    );
   }
   @override
   Widget build(BuildContext context) {
