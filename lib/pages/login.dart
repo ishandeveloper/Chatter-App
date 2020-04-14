@@ -16,21 +16,27 @@ class ChatterLogin extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: <Widget>[
-                Icon(
-                  Icons.textsms,
-                  size: 120,
-                  color: Colors.deepPurple[900],
+                Hero(
+                  tag: 'heroicon',
+                  child: Icon(
+                    Icons.textsms,
+                    size: 120,
+                    color: Colors.deepPurple[900],
+                  ),
                 ),
                 SizedBox(
                   height: MediaQuery.of(context).size.height * 0.02,
                 ),
-                Text(
-                  'Chatter',
-                  style: TextStyle(
-                      color: Colors.deepPurple[900],
-                      fontFamily: 'Poppins',
-                      fontSize: 26,
-                      fontWeight: FontWeight.w700),
+                Hero(
+                  tag:'HeroTitle',
+                                  child: Text(
+                    'Chatter',
+                    style: TextStyle(
+                        color: Colors.deepPurple[900],
+                        fontFamily: 'Poppins',
+                        fontSize: 26,
+                        fontWeight: FontWeight.w700),
+                  ),
                 ),
                 SizedBox(
                   height: MediaQuery.of(context).size.height * 0.01,
@@ -42,27 +48,52 @@ class ChatterLogin extends StatelessWidget {
                 //       fontSize: 12,
                 //       color: Colors.deepPurple),
                 // ),
-                CustomTextInput(hintText: 'Username',leading: Icons.supervised_user_circle,),
+                CustomTextInput(
+                  hintText: 'Username',
+                  leading: Icons.supervised_user_circle,
+                ),
                 SizedBox(
                   height: 0,
                 ),
-                CustomTextInput(hintText: 'Password',leading: Icons.lock,),
+                CustomTextInput(
+                  hintText: 'Password',
+                  leading: Icons.lock,
+                ),
                 SizedBox(
                   height: 30,
                 ),
-                CustomButton(
-                  text: 'login',
-                  accentColor: Colors.white,
-                  mainColor: Colors.deepPurple,
+                Hero(
+                  tag:'loginbutton',
+                                  child: CustomButton(
+                    text: 'login',
+                    accentColor: Colors.white,
+                    mainColor: Colors.deepPurple,
+                  ),
                 ),
-                SizedBox(height: 5,),
-                GestureDetector(onTap: (){
-                  Navigator.pushReplacementNamed(context, '/signup');
-                },child: Text('or create an account',style: TextStyle(fontFamily: 'Poppins',fontSize: 12,color: Colors.deepPurple),)),
+                SizedBox(
+                  height: 5,
+                ),
+                GestureDetector(
+                    onTap: () {
+                      Navigator.pushReplacementNamed(context, '/signup');
+                    },
+                    child: Text(
+                      'or create an account',
+                      style: TextStyle(
+                          fontFamily: 'Poppins',
+                          fontSize: 12,
+                          color: Colors.deepPurple),
+                    )),
                 SizedBox(
                   height: MediaQuery.of(context).size.height * 0.1,
                 ),
-                Text('Made with ♥ by ishandeveloper',style: TextStyle(fontFamily: 'Poppins'),)
+                Hero(
+                  tag:'footer',
+                                  child: Text(
+                    'Made with ♥ by ishandeveloper',
+                    style: TextStyle(fontFamily: 'Poppins'),
+                  ),
+                )
               ],
             ),
           ),
