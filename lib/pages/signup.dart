@@ -15,21 +15,27 @@ class ChatterSignUp extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: <Widget>[
-                Icon(
-                  Icons.textsms,
-                  size: 120,
-                  color: Colors.deepPurple[900],
+                Hero(
+                  tag: 'heroicon',
+                  child: Icon(
+                    Icons.textsms,
+                    size: 120,
+                    color: Colors.deepPurple[900],
+                  ),
                 ),
                 SizedBox(
                   height: MediaQuery.of(context).size.height * 0.02,
                 ),
-                Text(
-                  'Chatter',
-                  style: TextStyle(
-                      color: Colors.deepPurple[900],
-                      fontFamily: 'Poppins',
-                      fontSize: 26,
-                      fontWeight: FontWeight.w700),
+                Hero(
+                  tag: 'HeroTitle',
+                  child: Text(
+                    'Chatter',
+                    style: TextStyle(
+                        color: Colors.deepPurple[900],
+                        fontFamily: 'Poppins',
+                        fontSize: 26,
+                        fontWeight: FontWeight.w700),
+                  ),
                 ),
                 SizedBox(
                   height: MediaQuery.of(context).size.height * 0.01,
@@ -41,31 +47,58 @@ class ChatterSignUp extends StatelessWidget {
                 //       fontSize: 12,
                 //       color: Colors.deepPurple),
                 // ),
-                CustomTextInput(hintText: 'Full Name',leading: Icons.text_format,),
+                CustomTextInput(
+                  hintText: 'Full Name',
+                  leading: Icons.text_format,
+                ),
                 SizedBox(
                   height: 0,
                 ),
-                CustomTextInput(hintText: 'Email',leading: Icons.supervised_user_circle,),
+                CustomTextInput(
+                  hintText: 'Email',
+                  leading: Icons.supervised_user_circle,
+                ),
                 SizedBox(
                   height: 0,
                 ),
-                CustomTextInput(hintText: 'Password',leading: Icons.lock,),
+                CustomTextInput(
+                  hintText: 'Password',
+                  leading: Icons.lock,
+                ),
                 SizedBox(
                   height: 30,
                 ),
-                CustomButton(
-                  text: 'sign up',
-                  accentColor: Colors.white,
-                  mainColor: Colors.deepPurple,
+                Hero(
+                  tag: 'signupbutton',
+                  child: CustomButton(
+                    text: 'sign up',
+                    accentColor: Colors.white,
+                    mainColor: Colors.deepPurple,
+                  ),
                 ),
-                SizedBox(height: 5,),
-                GestureDetector(onTap: (){
-                  Navigator.pushReplacementNamed(context, '/login');
-                },child: Text('or log in instead',style: TextStyle(fontFamily: 'Poppins',fontSize: 12,color: Colors.deepPurple),)),
+                SizedBox(
+                  height: 5,
+                ),
+                GestureDetector(
+                    onTap: () {
+                      Navigator.pushReplacementNamed(context, '/login');
+                    },
+                    child: Text(
+                      'or log in instead',
+                      style: TextStyle(
+                          fontFamily: 'Poppins',
+                          fontSize: 12,
+                          color: Colors.deepPurple),
+                    )),
                 SizedBox(
                   height: MediaQuery.of(context).size.height * 0.1,
                 ),
-                Text('Made with ♥ by ishandeveloper',style: TextStyle(fontFamily: 'Poppins'),)
+                Hero(
+                    tag: 'footer',
+                    child: Text(
+                      'Made with ♥ by ishandeveloper',
+                      style: TextStyle(fontFamily: 'Poppins'),
+                    ))
               ],
             ),
           ),
