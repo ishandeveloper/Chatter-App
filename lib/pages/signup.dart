@@ -2,6 +2,7 @@ import 'package:chat_app/widgets/custombutton.dart';
 import 'package:chat_app/widgets/customtextinput.dart';
 import 'package:edge_alert/edge_alert.dart';
 import 'package:flutter/material.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 class ChatterSignUp extends StatefulWidget {
   @override
@@ -9,6 +10,7 @@ class ChatterSignUp extends StatefulWidget {
 }
 
 class _ChatterSignUpState extends State<ChatterSignUp> {
+  final _auth = FirebaseAuth.instance;
   String email;
   String username;
   String password;
@@ -107,12 +109,25 @@ class _ChatterSignUpState extends State<ChatterSignUp> {
                 Hero(
                   tag: 'signupbutton',
                   child: CustomButton(
-                    onpress: () {
+                    onpress: () async {
                       if (name != null &&
                           password != null &&
                           username != null &&
                           email != null) {
-                        print(name + password + email + username);
+                        try {
+                          final newUser =
+                              await _auth.createUserWithEmailAndPassword(
+                                  email: email, password: password);
+                          if (newUser != null) {
+                            UserUpdateInfo info=UserUpdateInfo();
+                            info.displayName=name;
+                            await newUser.user.updateProfile(info);
+                            
+                            Navigator.pushNamed(context, '/chat');
+                          }
+                        } catch (e) {
+                          print(e);
+                        }
                       } else {
                         EdgeAlert.show(context,
                             title: 'Signup Failed',
