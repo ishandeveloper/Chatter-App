@@ -1,6 +1,6 @@
 import 'package:chat_app/widgets/custombutton.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart';
+import 'package:animated_text_kit/animated_text_kit.dart';
 
 class ChatterHome extends StatefulWidget {
   @override
@@ -63,9 +63,11 @@ class _ChatterHomeState extends State<ChatterHome>
                 SizedBox(
                   height: MediaQuery.of(context).size.height * 0.01,
                 ),
-                Text(
-                  "World's most private chatting app".toUpperCase(),
-                  style: TextStyle(
+                TyperAnimatedTextKit(
+                  isRepeatingAnimation: false,
+                  speed:Duration(milliseconds: 60),
+                  text:["World's most private chatting app".toUpperCase()],
+                  textStyle: TextStyle(
                       fontFamily: 'Poppins',
                       fontSize: 12,
                       color: Colors.deepPurple),
