@@ -41,6 +41,7 @@ android {
         // TODO: Specify your own unique Application ID (https://developer.android.com/studio/build/application-id.html).
         applicationId "com.ishandeveloper.chatter"
         minSdkVersion 16
+        multiDexEnabled true
         targetSdkVersion 28
         versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName
@@ -61,7 +62,8 @@ flutter {
 }
 
 dependencies {
-    implementation 'com.google.firebase:firebase-core:16.0.1'
+    implementation 'com.android.support:multidex:1.0.3'
+    // implementation 'com.google.firebase:firebase-core:16.0.1'
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test:runner:1.1.1'
