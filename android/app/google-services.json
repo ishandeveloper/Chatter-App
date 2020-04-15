@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "776110951466",
+    "firebase_url": "https://idevchatter.firebaseio.com",
+    "project_id": "idevchatter",
+    "storage_bucket": "idevchatter.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:776110951466:android:ae6d8e5e1ceb9969fdc753",
+        "android_client_info": {
+          "package_name": "com.ishandeveloper.chatter"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "776110951466-ed7avnhq7c5r1csgf9o40ncabil324p1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDx9iSwrpMZJcyO-T1sfqlxLA1wHWzQxKg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "776110951466-ed7avnhq7c5r1csgf9o40ncabil324p1.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
