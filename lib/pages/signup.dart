@@ -55,8 +55,15 @@ class ChatterSignUp extends StatelessWidget {
                   height: 0,
                 ),
                 CustomTextInput(
-                  hintText: 'Email',
+                  hintText: 'Username',
                   leading: Icons.supervised_user_circle,
+                ),
+                SizedBox(
+                  height: 0,
+                ),
+                CustomTextInput(
+                  hintText: 'Email',
+                  leading: Icons.mail,
                 ),
                 SizedBox(
                   height: 0,

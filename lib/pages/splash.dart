@@ -7,21 +7,28 @@ class ChatterHome extends StatefulWidget {
   _ChatterHomeState createState() => _ChatterHomeState();
 }
 
-class _ChatterHomeState extends State<ChatterHome> with SingleTickerProviderStateMixin{
-
-  AnimationController controller;
+class _ChatterHomeState extends State<ChatterHome>
+    with SingleTickerProviderStateMixin {
+  AnimationController backgroundController;
 
   @override
   void initState() {
     super.initState();
-    controller=AnimationController(
-      duration: Duration(seconds: 1),
+    backgroundController = AnimationController(
+      duration: Duration(milliseconds: 500),
       vsync: this,
     );
+    backgroundController.forward();
+
+    backgroundController.addListener(() {
+      setState(() {});
+    });
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white.withOpacity(backgroundController.value),
       body: SafeArea(
         child: Container(
           child: Center(
@@ -30,8 +37,8 @@ class _ChatterHomeState extends State<ChatterHome> with SingleTickerProviderStat
               crossAxisAlignment: CrossAxisAlignment.center,
               children: <Widget>[
                 Hero(
-                  tag:'heroicon',
-                                  child: Icon(
+                  tag: 'heroicon',
+                  child: Icon(
                     Icons.textsms,
                     size: 100,
                     color: Colors.deepPurple[900],
@@ -41,8 +48,8 @@ class _ChatterHomeState extends State<ChatterHome> with SingleTickerProviderStat
                   height: MediaQuery.of(context).size.height * 0.02,
                 ),
                 Hero(
-                  tag:'HeroTitle',
-                                  child: Text(
+                  tag: 'HeroTitle',
+                  child: Text(
                     'Chatter',
                     style: TextStyle(
                         color: Colors.deepPurple[900],
@@ -65,11 +72,11 @@ class _ChatterHomeState extends State<ChatterHome> with SingleTickerProviderStat
                   height: MediaQuery.of(context).size.height * 0.15,
                 ),
                 Hero(
-                  tag:'loginbutton',
-                                  child: CustomButton(
+                  tag: 'loginbutton',
+                  child: CustomButton(
                     text: 'Login',
                     accentColor: Colors.deepPurple,
-                    onpress: (){
+                    onpress: () {
                       Navigator.pushReplacementNamed(context, '/login');
                     },
                   ),
@@ -79,16 +86,18 @@ class _ChatterHomeState extends State<ChatterHome> with SingleTickerProviderStat
                 ),
                 Hero(
                   tag: 'signupbutton',
-                                  child: CustomButton(
+                  child: CustomButton(
                     text: 'Signup',
                     accentColor: Colors.white,
                     mainColor: Colors.deepPurple,
-                    onpress: (){
+                    onpress: () {
                       Navigator.pushReplacementNamed(context, '/signup');
                     },
                   ),
                 ),
-                SizedBox(height: MediaQuery.of(context).size.height*0.1,),
+                SizedBox(
+                  height: MediaQuery.of(context).size.height * 0.1,
+                ),
                 Text('Made with ♥ by ishandeveloper')
               ],
             ),
