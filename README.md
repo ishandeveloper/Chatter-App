@@ -15,7 +15,7 @@ One of the first simple apps I created while on my journey to learn flutter.
 
 ##### Demo
 
-  <img src="https://github.com/ishandeveloper/Chatter-App/blob/master/Screenshots/1.jpg?raw=false" width="30%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="https://github.com/ishandeveloper/Chatter-App/blob/master/Screenshots/2.jpg?raw=false" width="30%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="https://github.com/ishandeveloper/Chatter-App/blob/master/Screenshots/3.jpg?raw=false" width="30%">
+  <img src="https://github.com/ishandeveloper/Chatter-App/blob/master/Screenshots/demo.gif?raw=false" width="30%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="https://github.com/ishandeveloper/Chatter-App/blob/master/Screenshots/1.jpg?raw=false" width="30%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="https://github.com/ishandeveloper/Chatter-App/blob/master/Screenshots/animate.gif?raw=false" width="30%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="https://github.com/ishandeveloper/Chatter-App/blob/master/Screenshots/2.jpg?raw=false" width="30%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="https://github.com/ishandeveloper/Chatter-App/blob/master/Screenshots/3.jpg?raw=false" width="30%">
   
 ##### Dependencies
 
