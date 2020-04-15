@@ -1,8 +1,8 @@
-import 'package:chat_app/pages/chat.dart';
+// import 'package:chat_app/pages/chat.dart';
 import 'package:chat_app/pages/login.dart';
 import 'package:chat_app/pages/signup.dart';
 import 'package:flutter/material.dart';
-
+import 'package:chat_app/pages/chatterScreen.dart';
 import 'pages/splash.dart';
 
 void main() => runApp(ChatterApp());
@@ -20,7 +20,8 @@ class ChatterApp extends StatelessWidget {
         '/':(context)=>ChatterHome(),
         '/login':(context)=>ChatterLogin(),
         '/signup':(context)=>ChatterSignUp(),
-        '/chat':(context)=>ChatScreen()
+        '/chat':(context)=>ChatterScreen(),
+        // '/chats':(context)=>ChatterScreen()
       },
     );
   }
