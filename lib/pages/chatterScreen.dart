@@ -37,9 +37,8 @@ class _ChatterScreenState extends State<ChatterScreen> {
   //   }
   // }
 
-  
-  void messageStream() async{
-    await for(var snapshot in _firestore.collection('messages').snapshots()){
+  void messageStream() async {
+    await for (var snapshot in _firestore.collection('messages').snapshots()) {
       snapshot.documents;
     }
   }
@@ -130,6 +129,23 @@ class _ChatterScreenState extends State<ChatterScreen> {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: <Widget>[
+          StreamBuilder(
+            stream: _firestore.collection('messages').snapshots(),
+            builder: (context, snapshot) {
+              if (snapshot.hasData) {
+                final messages = snapshot.data.documents;
+                List<Text> messageWidgets = [];
+                for (var message in messages) {
+                  final msgText = message.data['text'];
+                  final msgSender = message.data['sender'];
+                  messageWidgets.add(Text(msgText + ' from ' + msgSender));
+                }
+                return Column(
+                  children: messageWidgets,
+                );
+              } 
+            },
+          ),
           Container(
             decoration: kMessageContainerDecoration,
             child: Row(
