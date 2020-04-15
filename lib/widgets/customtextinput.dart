@@ -5,7 +5,8 @@ class CustomTextInput extends StatelessWidget {
   final IconData leading;
   final Function userTyped;
   final bool obscure;
-  CustomTextInput({this.hintText, this.leading,this.userTyped,this.obscure});
+  final TextInputType keyboard;
+  CustomTextInput({this.hintText, this.leading,this.userTyped,this.obscure,this.keyboard=TextInputType.text});
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -18,6 +19,7 @@ class CustomTextInput extends StatelessWidget {
       width: MediaQuery.of(context).size.width * 0.70,
       child: TextField(
         onChanged: userTyped,
+        keyboardType: keyboard,
         onSubmitted: (value) {},
         autofocus: false,
         obscureText: obscure?true:false,
