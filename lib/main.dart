@@ -13,7 +13,8 @@ class ChatterApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Chatter',
-      theme: ThemeData(textTheme: TextTheme(body1: TextStyle(fontFamily: 'Poppins'))),
+      
+      theme: ThemeData(textTheme: TextTheme(body1: TextStyle(fontFamily: 'Poppins'),),),
       // home: ChatterHome(),
       initialRoute: '/',
       routes: {
