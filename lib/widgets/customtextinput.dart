@@ -3,8 +3,9 @@ import 'package:flutter/material.dart';
 class CustomTextInput extends StatelessWidget {
   final String hintText;
   final IconData leading;
-
-  CustomTextInput({this.hintText, this.leading});
+  final Function userTyped;
+  final bool obscure;
+  CustomTextInput({this.hintText, this.leading,this.userTyped,this.obscure});
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -16,9 +17,10 @@ class CustomTextInput extends StatelessWidget {
       padding: EdgeInsets.only(left: 10),
       width: MediaQuery.of(context).size.width * 0.70,
       child: TextField(
-        onChanged: (value) {},
+        onChanged: userTyped,
         onSubmitted: (value) {},
         autofocus: false,
+        obscureText: obscure?true:false,
         decoration: InputDecoration(
           icon: Icon(
             leading,
@@ -26,6 +28,7 @@ class CustomTextInput extends StatelessWidget {
           ),
           border: InputBorder.none,
           hintText: hintText,
+
           hintStyle: TextStyle(
             fontFamily: 'Poppins',
           ),

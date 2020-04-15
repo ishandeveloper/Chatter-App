@@ -2,7 +2,19 @@ import 'package:chat_app/widgets/custombutton.dart';
 import 'package:chat_app/widgets/customtextinput.dart';
 import 'package:flutter/material.dart';
 
-class ChatterSignUp extends StatelessWidget {
+class ChatterSignUp extends StatefulWidget {
+  @override
+  _ChatterSignUpState createState() => _ChatterSignUpState();
+}
+
+class _ChatterSignUpState extends State<ChatterSignUp> {
+
+  String email;
+  String username;
+  String password;
+  String name;
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -50,13 +62,21 @@ class ChatterSignUp extends StatelessWidget {
                 CustomTextInput(
                   hintText: 'Full Name',
                   leading: Icons.text_format,
+                  obscure: false,
+                  userTyped: (value){
+                    name=value;
+                  },
                 ),
                 SizedBox(
                   height: 0,
                 ),
                 CustomTextInput(
                   hintText: 'Username',
+                  obscure: false,
                   leading: Icons.supervised_user_circle,
+                  userTyped: (value){
+                    username=value;
+                  },
                 ),
                 SizedBox(
                   height: 0,
@@ -64,6 +84,10 @@ class ChatterSignUp extends StatelessWidget {
                 CustomTextInput(
                   hintText: 'Email',
                   leading: Icons.mail,
+                  obscure: false,
+                  userTyped: (value){
+                    email=value;
+                  },
                 ),
                 SizedBox(
                   height: 0,
@@ -71,6 +95,10 @@ class ChatterSignUp extends StatelessWidget {
                 CustomTextInput(
                   hintText: 'Password',
                   leading: Icons.lock,
+                  obscure: true,
+                  userTyped: (value){
+                    password=value;
+                  },
                 ),
                 SizedBox(
                   height: 30,
