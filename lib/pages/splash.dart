@@ -8,19 +8,19 @@ class ChatterHome extends StatefulWidget {
 }
 
 class _ChatterHomeState extends State<ChatterHome>
-    with SingleTickerProviderStateMixin {
-  AnimationController backgroundController;
+    with TickerProviderStateMixin {
+  AnimationController mainController;
 
   @override
   void initState() {
     super.initState();
-    backgroundController = AnimationController(
+    mainController = AnimationController(
       duration: Duration(milliseconds: 500),
       vsync: this,
     );
-    backgroundController.forward();
 
-    backgroundController.addListener(() {
+    mainController.forward();
+    mainController.addListener(() {
       setState(() {});
     });
   }
@@ -28,7 +28,7 @@ class _ChatterHomeState extends State<ChatterHome>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white.withOpacity(backgroundController.value),
+      backgroundColor: Colors.white.withOpacity(mainController.value),
       body: SafeArea(
         child: Container(
           child: Center(
@@ -40,7 +40,7 @@ class _ChatterHomeState extends State<ChatterHome>
                   tag: 'heroicon',
                   child: Icon(
                     Icons.textsms,
-                    size: 100,
+                    size: mainController.value * 100,
                     color: Colors.deepPurple[900],
                   ),
                 ),
