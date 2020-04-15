@@ -203,7 +203,7 @@ class ChatStream extends StatelessWidget {
       stream: _firestore.collection('messages').snapshots(),
       builder: (context, snapshot) {
         if (snapshot.hasData) {
-          final messages = snapshot.data.documents;
+          final messages = snapshot.data.documents.reversed;
           List<MessageBubble> messageWidgets = [];
           for (var message in messages) {
             final msgText = message.data['text'];
@@ -220,6 +220,7 @@ class ChatStream extends StatelessWidget {
           }
           return Expanded(
             child: ListView(
+              reverse: true,
               padding: EdgeInsets.symmetric(vertical: 15, horizontal: 10),
               children: messageWidgets,
             ),
