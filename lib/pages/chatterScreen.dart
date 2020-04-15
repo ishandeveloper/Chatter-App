@@ -175,6 +175,7 @@ class _ChatterScreenState extends State<ChatterScreen> {
                     _firestore.collection('messages').add({
                       'sender': username,
                       'text': messageText,
+                      'timestamp':DateTime.now().millisecondsSinceEpoch,
                       'senderemail': email
                     });
                   },
@@ -200,7 +201,7 @@ class ChatStream extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return StreamBuilder(
-      stream: _firestore.collection('messages').snapshots(),
+      stream: _firestore.collection('messages').orderBy('timestamp').snapshots(),
       builder: (context, snapshot) {
         if (snapshot.hasData) {
           final messages = snapshot.data.documents.reversed;
