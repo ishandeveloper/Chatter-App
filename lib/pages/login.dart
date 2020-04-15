@@ -51,6 +51,7 @@ class ChatterLogin extends StatelessWidget {
                 CustomTextInput(
                   hintText: 'Username',
                   leading: Icons.supervised_user_circle,
+                  obscure: false,
                 ),
                 SizedBox(
                   height: 0,
@@ -58,6 +59,7 @@ class ChatterLogin extends StatelessWidget {
                 CustomTextInput(
                   hintText: 'Password',
                   leading: Icons.lock,
+                  obscure: true,
                 ),
                 SizedBox(
                   height: 30,

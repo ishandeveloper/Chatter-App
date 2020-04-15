@@ -1,5 +1,6 @@
 import 'package:chat_app/widgets/custombutton.dart';
 import 'package:chat_app/widgets/customtextinput.dart';
+import 'package:edge_alert/edge_alert.dart';
 import 'package:flutter/material.dart';
 
 class ChatterSignUp extends StatefulWidget {
@@ -8,12 +9,10 @@ class ChatterSignUp extends StatefulWidget {
 }
 
 class _ChatterSignUpState extends State<ChatterSignUp> {
-
   String email;
   String username;
   String password;
   String name;
-
 
   @override
   Widget build(BuildContext context) {
@@ -63,8 +62,8 @@ class _ChatterSignUpState extends State<ChatterSignUp> {
                   hintText: 'Full Name',
                   leading: Icons.text_format,
                   obscure: false,
-                  userTyped: (value){
-                    name=value;
+                  userTyped: (value) {
+                    name = value;
                   },
                 ),
                 SizedBox(
@@ -74,8 +73,8 @@ class _ChatterSignUpState extends State<ChatterSignUp> {
                   hintText: 'Username',
                   obscure: false,
                   leading: Icons.supervised_user_circle,
-                  userTyped: (value){
-                    username=value;
+                  userTyped: (value) {
+                    username = value;
                   },
                 ),
                 SizedBox(
@@ -84,9 +83,10 @@ class _ChatterSignUpState extends State<ChatterSignUp> {
                 CustomTextInput(
                   hintText: 'Email',
                   leading: Icons.mail,
+                  keyboard: TextInputType.emailAddress,
                   obscure: false,
-                  userTyped: (value){
-                    email=value;
+                  userTyped: (value) {
+                    email = value;
                   },
                 ),
                 SizedBox(
@@ -95,9 +95,10 @@ class _ChatterSignUpState extends State<ChatterSignUp> {
                 CustomTextInput(
                   hintText: 'Password',
                   leading: Icons.lock,
+                  keyboard: TextInputType.visiblePassword,
                   obscure: true,
-                  userTyped: (value){
-                    password=value;
+                  userTyped: (value) {
+                    password = value;
                   },
                 ),
                 SizedBox(
@@ -106,6 +107,21 @@ class _ChatterSignUpState extends State<ChatterSignUp> {
                 Hero(
                   tag: 'signupbutton',
                   child: CustomButton(
+                    onpress: () {
+                      if (name != null &&
+                          password != null &&
+                          username != null &&
+                          email != null) {
+                        print(name + password + email + username);
+                      } else {
+                        EdgeAlert.show(context,
+                            title: 'Signup Failed',
+                            description: 'All fields are required.',
+                            gravity: EdgeAlert.BOTTOM,
+                            icon: Icons.error,
+                            backgroundColor: Colors.deepPurple[900]);
+                      }
+                    },
                     text: 'sign up',
                     accentColor: Colors.white,
                     mainColor: Colors.deepPurple,
