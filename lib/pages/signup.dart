@@ -12,7 +12,7 @@ class ChatterSignUp extends StatefulWidget {
 class _ChatterSignUpState extends State<ChatterSignUp> {
   final _auth = FirebaseAuth.instance;
   String email;
-  String username;
+  // String username;
   String password;
   String name;
 
@@ -61,7 +61,7 @@ class _ChatterSignUpState extends State<ChatterSignUp> {
                 //       color: Colors.deepPurple),
                 // ),
                 CustomTextInput(
-                  hintText: 'Full Name',
+                  hintText: 'Name',
                   leading: Icons.text_format,
                   obscure: false,
                   userTyped: (value) {
@@ -71,14 +71,14 @@ class _ChatterSignUpState extends State<ChatterSignUp> {
                 SizedBox(
                   height: 0,
                 ),
-                CustomTextInput(
-                  hintText: 'Username',
-                  obscure: false,
-                  leading: Icons.supervised_user_circle,
-                  userTyped: (value) {
-                    username = value;
-                  },
-                ),
+                // CustomTextInput(
+                //   hintText: 'Username',
+                //   obscure: false,
+                //   leading: Icons.supervised_user_circle,
+                //   userTyped: (value) {
+                //     username = value;
+                //   },
+                // ),
                 SizedBox(
                   height: 0,
                 ),
@@ -112,7 +112,7 @@ class _ChatterSignUpState extends State<ChatterSignUp> {
                     onpress: () async {
                       if (name != null &&
                           password != null &&
-                          username != null &&
+                          
                           email != null) {
                         try {
                           final newUser =
