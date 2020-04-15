@@ -10,7 +10,7 @@ class ChatterHome extends StatefulWidget {
 class _ChatterHomeState extends State<ChatterHome>
     with TickerProviderStateMixin {
   AnimationController mainController;
-
+  Animation mainAnimation;
   @override
   void initState() {
     super.initState();
@@ -18,7 +18,7 @@ class _ChatterHomeState extends State<ChatterHome>
       duration: Duration(milliseconds: 500),
       vsync: this,
     );
-
+    mainAnimation=CurvedAnimation(curve: Curves.bounceIn,parent: mainController);
     mainController.forward();
     mainController.addListener(() {
       setState(() {});
@@ -40,7 +40,7 @@ class _ChatterHomeState extends State<ChatterHome>
                   tag: 'heroicon',
                   child: Icon(
                     Icons.textsms,
-                    size: mainController.value * 100,
+                    size: mainAnimation.value * 100,
                     color: Colors.deepPurple[900],
                   ),
                 ),
