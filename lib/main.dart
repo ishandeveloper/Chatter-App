@@ -1,3 +1,4 @@
+import 'package:chat_app/pages/chat.dart';
 import 'package:chat_app/pages/login.dart';
 import 'package:chat_app/pages/signup.dart';
 import 'package:flutter/material.dart';
@@ -18,7 +19,8 @@ class ChatterApp extends StatelessWidget {
       routes: {
         '/':(context)=>ChatterHome(),
         '/login':(context)=>ChatterLogin(),
-        '/signup':(context)=>ChatterSignUp()
+        '/signup':(context)=>ChatterSignUp(),
+        '/chat':(context)=>ChatScreen()
       },
     );
   }

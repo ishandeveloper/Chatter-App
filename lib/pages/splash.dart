@@ -18,7 +18,9 @@ class _ChatterHomeState extends State<ChatterHome>
       duration: Duration(milliseconds: 500),
       vsync: this,
     );
-    mainAnimation=ColorTween(begin: Colors.deepPurple[900],end: Colors.grey[100]).animate(mainController);
+    mainAnimation =
+        ColorTween(begin: Colors.deepPurple[900], end: Colors.grey[100])
+            .animate(mainController);
     mainController.forward();
     mainController.addListener(() {
       setState(() {});

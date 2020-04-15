@@ -68,6 +68,9 @@ class ChatterLogin extends StatelessWidget {
                     text: 'login',
                     accentColor: Colors.white,
                     mainColor: Colors.deepPurple,
+                    onpress: (){
+                      Navigator.pushReplacementNamed(context, '/chat');
+                    },
                   ),
                 ),
                 SizedBox(
