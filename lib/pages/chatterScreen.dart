@@ -1,9 +1,14 @@
+import 'package:edge_alert/edge_alert.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import '../constants.dart';
 
 final _firestore = Firestore.instance;
+String username = 'User';
+String email = 'user@example.com';
+String messageText;
+FirebaseUser loggedInUser;
 
 class ChatterScreen extends StatefulWidget {
   @override
@@ -12,12 +17,16 @@ class ChatterScreen extends StatefulWidget {
 
 class _ChatterScreenState extends State<ChatterScreen> {
   final chatMsgTextController = TextEditingController();
-  String username = 'User';
-  String email = 'user@example.com';
-  String messageText;
+
   final _auth = FirebaseAuth.instance;
 
-  FirebaseUser loggedInUser;
+  @override
+  void initState() {
+    super.initState();
+    getCurrentUser();
+    // getMessages();
+  }
+
   void getCurrentUser() async {
     try {
       final user = await _auth.currentUser();
@@ -29,7 +38,12 @@ class _ChatterScreenState extends State<ChatterScreen> {
         });
       }
     } catch (e) {
-      print(e);
+      EdgeAlert.show(context,
+          title: 'Something Went Wrong',
+          description: e.toString(),
+          gravity: EdgeAlert.BOTTOM,
+          icon: Icons.error,
+          backgroundColor: Colors.deepPurple[900]);
     }
   }
   // void getMessages()async{
@@ -39,18 +53,11 @@ class _ChatterScreenState extends State<ChatterScreen> {
   //   }
   // }
 
-  void messageStream() async {
-    await for (var snapshot in _firestore.collection('messages').snapshots()) {
-      snapshot.documents;
-    }
-  }
-
-  @override
-  void initState() {
-    super.initState();
-    getCurrentUser();
-    // getMessages();
-  }
+  // void messageStream() async {
+  //   await for (var snapshot in _firestore.collection('messages').snapshots()) {
+  //     snapshot.documents;
+  //   }
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -61,11 +68,16 @@ class _ChatterScreenState extends State<ChatterScreen> {
         bottom: PreferredSize(
           preferredSize: Size(25, 10),
           child: Container(
-            decoration: BoxDecoration(
-              color: Colors.grey[200],
-              // borderRadius: BorderRadius.circular(20)
+            child: LinearProgressIndicator(
+              valueColor: AlwaysStoppedAnimation<Color>(Colors.white),
+              backgroundColor: Colors.blue[100],
             ),
-            constraints: BoxConstraints.expand(height: 5),
+            decoration: BoxDecoration(
+                // color: Colors.blue,
+
+                // borderRadius: BorderRadius.circular(20)
+                ),
+            constraints: BoxConstraints.expand(height: 1),
           ),
         ),
         backgroundColor: Colors.white10,
@@ -133,20 +145,31 @@ class _ChatterScreenState extends State<ChatterScreen> {
         children: <Widget>[
           ChatStream(),
           Container(
+            padding: EdgeInsets.symmetric(vertical:10,horizontal: 10),
             decoration: kMessageContainerDecoration,
             child: Row(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: <Widget>[
                 Expanded(
-                  child: TextField(
-                    onChanged: (value) {
-                      messageText = value;
-                    },
-                    controller: chatMsgTextController,
-                    decoration: kMessageTextFieldDecoration,
+                  child: Material(
+                    borderRadius: BorderRadius.circular(50),
+                    color: Colors.white,
+                    elevation:5,
+                    child: Padding(
+                      padding: const EdgeInsets.only(left:8.0,top:2,bottom: 2),
+                      child: TextField(
+                        onChanged: (value) {
+                          messageText = value;
+                        },
+                        controller: chatMsgTextController,
+                        decoration: kMessageTextFieldDecoration,
+                      ),
+                    ),
                   ),
                 ),
-                FlatButton(
+                MaterialButton(
+                  shape: CircleBorder(),
+                  color: Colors.blue,
                   onPressed: () {
                     chatMsgTextController.clear();
                     _firestore.collection('messages').add({
@@ -155,10 +178,14 @@ class _ChatterScreenState extends State<ChatterScreen> {
                       'senderemail': email
                     });
                   },
-                  child: Text(
-                    'Send',
-                    style: kSendButtonTextStyle,
-                  ),
+                  child:Padding(
+                    padding: const EdgeInsets.all(10.0),
+                    child: Icon(Icons.send,color: Colors.white,),
+                  ) 
+                  // Text(
+                  //   'Send',
+                  //   style: kSendButtonTextStyle,
+                  // ),
                 ),
               ],
             ),
@@ -181,8 +208,14 @@ class ChatStream extends StatelessWidget {
           for (var message in messages) {
             final msgText = message.data['text'];
             final msgSender = message.data['sender'];
-            final msgBubble =
-                MessageBubble(msgText: msgText, msgSender: msgSender);
+            // final msgSenderEmail = message.data['senderemail'];
+            final currentUser = loggedInUser.displayName;
+
+            // print('MSG'+msgSender + '  CURR'+currentUser);
+            final msgBubble = MessageBubble(
+                msgText: msgText,
+                msgSender: msgSender,
+                user: currentUser == msgSender);
             messageWidgets.add(msgBubble);
           }
           return Expanded(
@@ -205,13 +238,16 @@ class ChatStream extends StatelessWidget {
 class MessageBubble extends StatelessWidget {
   final String msgText;
   final String msgSender;
-  MessageBubble({this.msgText, this.msgSender});
+  final bool user;
+  MessageBubble({this.msgText, this.msgSender, this.user});
+
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.all(12.0),
       child: Column(
-        crossAxisAlignment: CrossAxisAlignment.end,
+        crossAxisAlignment:
+            user ? CrossAxisAlignment.end : CrossAxisAlignment.start,
         children: <Widget>[
           Container(
             padding: EdgeInsets.symmetric(horizontal: 10),
@@ -224,17 +260,18 @@ class MessageBubble extends StatelessWidget {
           Material(
             borderRadius: BorderRadius.only(
               bottomLeft: Radius.circular(50),
-              topLeft: Radius.circular(50),
+              topLeft: user ? Radius.circular(50) : Radius.circular(0),
               bottomRight: Radius.circular(50),
+              topRight: user ? Radius.circular(0) : Radius.circular(50),
             ),
-            color: Colors.blue,
+            color: user ? Colors.blue : Colors.white,
             elevation: 5,
             child: Padding(
               padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 20),
               child: Text(
                 msgText,
                 style: TextStyle(
-                  color: Colors.white,
+                  color: user ? Colors.white : Colors.blue,
                   fontFamily: 'Poppins',
                   fontSize: 15,
                 ),
