@@ -33,6 +33,8 @@ One of the first simple apps I created while on my journey to learn flutter.
 
 1. [Modal_Progress_Hud](https://pub.dev/packages/modal_progress_hud)
 
+1. [Edge_Alert](https://pub.dev/packages/edge_alert)
+
 ## Setup
 
   ##### Clone the repository
