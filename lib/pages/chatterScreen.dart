@@ -3,19 +3,19 @@ import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import '../constants.dart';
 
-  final _firestore = Firestore.instance;
+final _firestore = Firestore.instance;
+
 class ChatterScreen extends StatefulWidget {
   @override
   _ChatterScreenState createState() => _ChatterScreenState();
 }
 
 class _ChatterScreenState extends State<ChatterScreen> {
-  final chatMsgTextController=TextEditingController();
+  final chatMsgTextController = TextEditingController();
   String username = 'User';
   String email = 'user@example.com';
   String messageText;
   final _auth = FirebaseAuth.instance;
-
 
   FirebaseUser loggedInUser;
   void getCurrentUser() async {
@@ -173,34 +173,35 @@ class ChatStream extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return StreamBuilder(
-            stream: _firestore.collection('messages').snapshots(),
-            builder: (context, snapshot) {
-              if (snapshot.hasData) {
-                final messages = snapshot.data.documents;
-                List<MessageBubble> messageWidgets = [];
-                for (var message in messages) {
-                  final msgText = message.data['text'];
-                  final msgSender = message.data['sender'];
-                  final msgBubble =
-                      MessageBubble(msgText: msgText, msgSender: msgSender);
-                  messageWidgets.add(msgBubble);
-                }
-                return Expanded(
-                  child: ListView(
-                    padding: EdgeInsets.symmetric(vertical: 15, horizontal: 10),
-                    children: messageWidgets,
-                  ),
-                );
-              } else {
-                return Center(
-                  child: CircularProgressIndicator(
-                      backgroundColor: Colors.deepPurple),
-                );
-              }
-            },
+      stream: _firestore.collection('messages').snapshots(),
+      builder: (context, snapshot) {
+        if (snapshot.hasData) {
+          final messages = snapshot.data.documents;
+          List<MessageBubble> messageWidgets = [];
+          for (var message in messages) {
+            final msgText = message.data['text'];
+            final msgSender = message.data['sender'];
+            final msgBubble =
+                MessageBubble(msgText: msgText, msgSender: msgSender);
+            messageWidgets.add(msgBubble);
+          }
+          return Expanded(
+            child: ListView(
+              padding: EdgeInsets.symmetric(vertical: 15, horizontal: 10),
+              children: messageWidgets,
+            ),
           );
+        } else {
+          return Center(
+            child:
+                CircularProgressIndicator(backgroundColor: Colors.deepPurple),
+          );
+        }
+      },
+    );
   }
 }
+
 class MessageBubble extends StatelessWidget {
   final String msgText;
   final String msgSender;
@@ -217,14 +218,15 @@ class MessageBubble extends StatelessWidget {
             child: Text(
               msgSender,
               style: TextStyle(
-                fontSize: 13,
-                fontFamily: 'Poppins',
-                color:Colors.black87
-              ),
+                  fontSize: 13, fontFamily: 'Poppins', color: Colors.black87),
             ),
           ),
           Material(
-            borderRadius: BorderRadius.circular(50),
+            borderRadius: BorderRadius.only(
+              bottomLeft: Radius.circular(50),
+              topLeft: Radius.circular(50),
+              bottomRight: Radius.circular(50),
+            ),
             color: Colors.blue,
             elevation: 5,
             child: Padding(
