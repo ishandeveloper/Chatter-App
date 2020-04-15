@@ -140,11 +140,17 @@ class _ChatterScreenState extends State<ChatterScreen> {
                   final msgSender = message.data['sender'];
                   messageWidgets.add(Text(msgText + ' from ' + msgSender));
                 }
-                return Column(
-                  children: messageWidgets,
+                return Expanded(
+                  child: ListView(
+                    padding: EdgeInsets.symmetric(vertical:15,horizontal:10),
+                    children: messageWidgets,
+                  ),
                 );
               } else {
-                return Center(child: CircularProgressIndicator(backgroundColor: Colors.deepPurple),);
+                return Center(
+                  child: CircularProgressIndicator(
+                      backgroundColor: Colors.deepPurple),
+                );
               }
             },
           ),
