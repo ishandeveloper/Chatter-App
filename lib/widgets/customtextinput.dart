@@ -5,7 +5,6 @@ class CustomTextInput extends StatelessWidget {
   final IconData leading;
 
   CustomTextInput({this.hintText, this.leading});
-
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -27,7 +26,9 @@ class CustomTextInput extends StatelessWidget {
           ),
           border: InputBorder.none,
           hintText: hintText,
-          hintStyle: TextStyle(fontFamily: 'Poppins'),
+          hintStyle: TextStyle(
+            fontFamily: 'Poppins',
+          ),
         ),
       ),
     );
