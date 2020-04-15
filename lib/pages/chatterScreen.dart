@@ -143,7 +143,9 @@ class _ChatterScreenState extends State<ChatterScreen> {
                 return Column(
                   children: messageWidgets,
                 );
-              } 
+              } else {
+                return Center(child: CircularProgressIndicator(backgroundColor: Colors.deepPurple),);
+              }
             },
           ),
           Container(
