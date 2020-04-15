@@ -30,21 +30,25 @@ class _ChatterScreenState extends State<ChatterScreen> {
       print(e);
     }
   }
-  void getMessages()async{
-    final messages=await _firestore.collection('messages').getDocuments();
-    for(var message in messages.documents){
-      print(message.data);
-    }
-  }
+  // void getMessages()async{
+  //   final messages=await _firestore.collection('messages').getDocuments();
+  //   for(var message in messages.documents){
+  //     print(message.data);
+  //   }
+  // }
 
   
-
+  void messageStream() async{
+    await for(var snapshot in _firestore.collection('messages').snapshots()){
+      snapshot.documents;
+    }
+  }
 
   @override
   void initState() {
     super.initState();
     getCurrentUser();
-    getMessages();
+    // getMessages();
   }
 
   @override
