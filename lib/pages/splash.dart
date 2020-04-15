@@ -18,7 +18,7 @@ class _ChatterHomeState extends State<ChatterHome>
       duration: Duration(milliseconds: 500),
       vsync: this,
     );
-    mainAnimation=CurvedAnimation(curve: Curves.bounceIn,parent: mainController);
+    mainAnimation=ColorTween(begin: Colors.deepPurple[900],end: Colors.grey[100]).animate(mainController);
     mainController.forward();
     mainController.addListener(() {
       setState(() {});
@@ -28,7 +28,7 @@ class _ChatterHomeState extends State<ChatterHome>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white.withOpacity(mainController.value),
+      backgroundColor: mainAnimation.value,
       body: SafeArea(
         child: Container(
           child: Center(
@@ -40,7 +40,7 @@ class _ChatterHomeState extends State<ChatterHome>
                   tag: 'heroicon',
                   child: Icon(
                     Icons.textsms,
-                    size: mainAnimation.value * 100,
+                    size: mainController.value * 100,
                     color: Colors.deepPurple[900],
                   ),
                 ),
