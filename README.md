@@ -101,6 +101,17 @@ git push -u origin development
 **Congratulations!**  :boom: Sit and relax, you've made your contribution to [Chatter App]  (https://github.com/ishandeveloper/Chatter-App) project.
 
 
+## Tasks and Features
+
+* Improve the UI
+* Implementing the App with Features
+* Login Page using Facebook, Google
+* Work on the improvement and building the various pages of the app
+* Database integration with  Firebase
+* Have a corresponding Web App for this
+* Analyze further design requirements and integrate
+
+
 For help getting started with Flutter, view the online documentation, which offers tutorials, samples, guidance on mobile development, and a full API reference.
 
 ##### Made with ♥ by <a href="https://github.com/ishandeveloper">ishandeveloper</a>
