@@ -1,4 +1,4 @@
-<img src="https://github.com/ishandeveloper/Chatter-App/blob/master/Screenshots/icon.PNG?raw=false" width="200px">
+<img src="./Screenshots/mockup.png" width="100%">
 
 # Chatter App
 
