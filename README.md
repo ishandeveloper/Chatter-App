@@ -12,7 +12,7 @@ One of the first simple apps I created while on my journey to learn flutter.
 
 Now you can have a confrence calling in the same application 
 ### Preview
-<img src="https://github.com/kanzd/images121/blob/master/1 (3).gif" width="30%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="https://github.com/kanzd/images121/blob/master/1 (4).gif" width="30%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="https://github.com/kanzd/images121/blob/master/1 (5).gif" width="30%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="https://github.com/kanzd/images121/blob/master/1 (7).gif" width="30%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="https://github.com/kanzd/images121/blob/master/1 (1).gif" width="30%">
+<img src="https://github.com/kanzd/images121/blob/master/1 (3).png" width="30%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="https://github.com/kanzd/images121/blob/master/1 (4).png" width="30%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="https://github.com/kanzd/images121/blob/master/1 (5).png" width="30%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="https://github.com/kanzd/images121/blob/master/1 (7).png" width="30%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="https://github.com/kanzd/images121/blob/master/1 (1).png" width="30%">
 
 
 ##### Download APK
