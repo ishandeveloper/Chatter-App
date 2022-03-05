@@ -13,18 +13,23 @@ class ChatterApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Chatter',
-      
-      theme: ThemeData(textTheme: TextTheme(body1: TextStyle(fontFamily: 'Poppins'),),),
+
+      theme: ThemeData(
+        textTheme: TextTheme(
+          bodyText1: TextStyle(
+            fontFamily: 'Poppins',
+          ),
+        ),
+      ),
       // home: ChatterHome(),
       initialRoute: '/',
       routes: {
-        '/':(context)=>ChatterHome(),
-        '/login':(context)=>ChatterLogin(),
-        '/signup':(context)=>ChatterSignUp(),
-        '/chat':(context)=>ChatterScreen(),
+        '/': (context) => ChatterHome(),
+        '/login': (context) => ChatterLogin(),
+        '/signup': (context) => ChatterSignUp(),
+        '/chat': (context) => ChatterScreen(),
         // '/chats':(context)=>ChatterScreen()
       },
     );
   }
 }
-
