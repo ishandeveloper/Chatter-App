@@ -8,6 +8,12 @@ It uses Firebase Cloud Firestore as well as the Firebase authentication package 
 
 One of the first simple apps I created while on my journey to learn flutter.
 
+# New Confrence Calling Functionality
+
+Now you can have a confrence calling in the same application 
+### Preview
+<img src="https://github.com/kanzd/images121/blob/master/1 (3).png" width="30%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="https://github.com/kanzd/images121/blob/master/1 (4).png" width="30%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="https://github.com/kanzd/images121/blob/master/1 (5).png" width="30%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="https://github.com/kanzd/images121/blob/master/1 (7).png" width="30%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="https://github.com/kanzd/images121/blob/master/1 (1).png" width="30%">
+
 
 ##### Download APK
 <pre><a href="https://github.com/ishandeveloper/Chatter-App/raw/master/app.apk">https://github.com/ishandeveloper/Chatter-App/raw/master/app.apk</a></pre>
@@ -35,6 +41,10 @@ One of the first simple apps I created while on my journey to learn flutter.
 1. [Modal_Progress_Hud](https://pub.dev/packages/modal_progress_hud)
 
 1. [Edge_Alert](https://pub.dev/packages/edge_alert)
+
+1. [jitsi_meet](https://pub.dev/packages/jitsi_meet)
+
+
 
 ## Setup
 
