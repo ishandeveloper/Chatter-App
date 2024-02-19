@@ -40,7 +40,7 @@ One of the first simple apps I created while on my journey to learn flutter.
 
   ##### Clone the repository
 ```bash
-git clone https://github.com/ishandeveloper/Chatter-App.git
+git clone https://github.com/thegreatpayload/Chatter-App.git
 ```
   ##### Move to the desired folder
 ```bash
@@ -62,7 +62,7 @@ flutter run
 
 ### How to make a Pull Request:
 
-**1.** Fork [this](https://github.com/ishandeveloper/Chatter-App) repository.
+**1.** Fork [this](https://github.com/thegreatpayload/Chatter-App) repository.
 
 **2.** Clone the forked repository.
 
@@ -98,7 +98,7 @@ git push -u origin development
 
 **8.** Create a Pull Request!
 
-**Congratulations!**  :boom: Sit and relax, you've made your contribution to [Chatter App]  (https://github.com/ishandeveloper/Chatter-App) project.
+**Congratulations!**  :boom: Sit and relax, you've made your contribution to [Chatter App]  (https://github.com/thegreatpayload/Chatter-App) project.
 
 
 ## Tasks and Features
@@ -114,7 +114,7 @@ git push -u origin development
 
 For help getting started with Flutter, view the online documentation, which offers tutorials, samples, guidance on mobile development, and a full API reference.
 
-##### Made with ♥ by <a href="https://github.com/ishandeveloper">ishandeveloper</a>
+##### Made with ♥ by <a href="https://github.com/thegreatpayload">thegreatpayload</a>
 
 
 [![forthebadge](https://forthebadge.com/images/badges/built-with-love.svg)](https://github.com/ishandeveloper)
